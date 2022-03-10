@@ -1,0 +1,41 @@
+import pygame
+pygame.init()
+pygame.display.set_caption("tv")
+screen = pygame.display.set_mode((800, 800))
+screen.fill((147, 151, 153))
+clock = pygame.time.Clock()
+
+doExit = False
+
+class platform:
+    def__init__(self, xpos, ypos):
+        self.xpos = xpos
+        self.ypos =ypos
+        self.blue = random.randrange(0, 250)
+        self.green = random.randrange(0, 250)
+        self.red = random.randrange(0, 250)
+
+    def draw(self):
+        pygame.draw.rect(screen,(100, 0, 200), (200, 650, 100, 20))
+    
+    def move(self):
+        self.ypos+=.1
+        
+    p1 =Platform(200, 0)
+    p2 =Platform(500, -200)
+    p3 =Platform(300, -400)
+    
+    while not doExit:
+        
+        clock.tick(60)
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                doExit = True
+            
+    
+    
+    pygame.display.flip()#this actually puts the pixel on the screen
+    
+#end game loop------------------------------------------------------------------------------
+pygame.quit()  
